@@ -4,8 +4,16 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 const routes = [
-    { path:'/home',component:() => import('@/views/Home') },
-    { path:'/user',component:() => import('@/views/User') }
+    {
+        path:'/',
+        name:'Main',
+        component:() => import('@/views/Main'),
+        children:[
+            { path:'home',name:'Home',component:() => import('@/views/Home') },
+            { path:'user',name:'User',component:() => import('@/views/User') }
+        ]
+    }
+   
 ]
 
 const router = new VueRouter({
