@@ -9,11 +9,13 @@ const routes = [
         name:'Main',
         component:() => import('@/views/Main'),
         children:[
-            { path:'home',name:'Home',component:() => import('@/views/Home') },
-            { path:'user',name:'User',component:() => import('@/views/User') }
+            { path:'home',component:() => import('@/views/Home') },
+            { path:'user',component:() => import('@/views/User') },
+            { path:'mall',component:() => import('@/views/Mall') },
+            { path:'page1',component:() => import('@/views/PageOne') },
+            { path:'page2',component:() => import('@/views/PageTwo') }
         ]
-    }
-   
+    },   
 ]
 
 const router = new VueRouter({
