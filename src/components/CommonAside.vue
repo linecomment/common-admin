@@ -11,14 +11,15 @@
       active-text-color="#ffd04b"
       >
       <h3>通用后台管理系统</h3>
+      <!-- 无层级目录 -->
       <el-menu-item  @click="clickMenu(item)" v-for="item in noChildren" :key="item.name" :index="item.name">
-        <i :class="item.icon"></i>
+        <i :class="`el-icon-${item.icon}`"></i>
         <span slot="title">{{ item.label }}</span>
       </el-menu-item>
+      <!-- 层级目录 -->
       <el-submenu v-for="item in hasChildren" :key="item.label" :index="item.label">
         <template slot="title">
-          <!-- <i :class="`el-icon-${item.icon}`"></i> -->
-          <i :class="item.icon"></i>
+          <i :class="`el-icon-${item.icon}`"></i>
           <span slot="title">{{ item.label }}</span>
         </template>
         <el-menu-item-group v-for="subItem in item.children" :key="subItem.path" >
@@ -39,21 +40,21 @@ export default {
           path: "/",
           name: "home",
           label: "首页",
-          icon: "el-icon-s-home",
+          icon: "s-home",
           url: "Home/Home",
         },
         {
           path: "/mall",
           name: "mall",
           label: "商品管理",
-          icon: "el-icon-video-play",
+          icon: "video-play",
           url: "MallManage/MallManage",
         },
         {
           path: "/user",
           name: "user",
           label: "用户管理",
-          icon: "el-icon-user",
+          icon: "user",
           url: "UserManage/UserManage",
         },
         {
@@ -63,14 +64,14 @@ export default {
             {
               path: "/page1",
               name: "page1",
-              label: "首页",
+              label: "page1",
               icon: "setting",
               url: "Other/PageOne",
             },
             {
               path: "/page2",
               name: "page2",
-              label: "首页",
+              label: "page2",
               icon: "setting",
               url: "Other/PageTwo",
             },
@@ -89,16 +90,17 @@ export default {
     // 点击菜单
     clickMenu(item){
       console.log(item)
+      this.$router.push(item.path)
     }
   },
   computed:{
     // 没有子菜单
     noChildren(){
-      this.menuData.filter(item => !item.children)
+      return this.menuData.filter(item => !item.children)
     },
     // 有子菜单
     hasChildren(){
-      this.menuData.filter(item => item.children)
+      return this.menuData.filter(item => item.children)
     }
   }
 };
@@ -108,7 +110,6 @@ export default {
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 200px;
   min-height: 400px;
-  background-color: red;
 }
 .el-menu{
   height: 100vh;
