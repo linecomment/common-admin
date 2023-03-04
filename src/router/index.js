@@ -10,11 +10,11 @@ const routes = [
         name:'Main',
         component:() => import('@/views/Main'),
         children:[
-            { path:'home',component:() => import('@/views/Home') },
-            { path:'user',component:() => import('@/views/User') },
-            { path:'mall',component:() => import('@/views/Mall') },
-            { path:'page1',component:() => import('@/views/PageOne') },
-            { path:'page2',component:() => import('@/views/PageTwo') }
+            { path:'home',name:'home',component:() => import('@/views/Home') },
+            { path:'user',name:'user',component:() => import('@/views/User') },
+            { path:'mall',name:'mall',component:() => import('@/views/Mall') },
+            { path:'page1',name:'page1',component:() => import('@/views/PageOne') },
+            { path:'page2',name:'page2',component:() => import('@/views/PageTwo') }
         ]
     },   
 ]

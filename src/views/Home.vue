@@ -1,6 +1,5 @@
 ﻿<template>
   <div class="home-container">
-    <h3>Home</h3>
     <el-row>
       <!-- 左侧 -->
       <el-col :span="8" style="padding-right:10px">
@@ -17,7 +16,8 @@
             <p>上次登入地点:<span>上海</span></p>
            </div>
           </el-card>
-          <el-card style="margin-top:20px; height:400px">
+          <!-- 表格 -->
+          <el-card style="margin-top:20px; height:456px">
             <el-table
             :data="tableData"
             border
@@ -46,8 +46,8 @@
               <div ref="echarts2" style="height: 260px">
               </div>
             </el-card>
-            <el-card style="height:240px">
-              <div ref="echarts3" style="height: 260px">
+            <el-card style="height:260px">
+              <div ref="echarts3" style="height: 240px">
               </div>
             </el-card>
           </div>

@@ -90,6 +90,7 @@ export default {
       if(this.$route.path !==item.path && !(this.$route.path === '/home' && (item.path === '/'))){
         this.$router.push(item.path)
       }
+      this.$store.commit('selectMenu',item)
     }
   },
   computed:{
@@ -109,13 +110,13 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="less" >
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 200px;
-  min-height: 400px;
+  min-height: 600px;
 }
 .el-menu{
-  height: 100vh;
+  height: 100%;
   border-right: none;
   h3{
     color: #fff;
